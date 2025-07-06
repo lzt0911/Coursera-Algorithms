@@ -8,7 +8,7 @@
 * 下载JDK，更新环境变量
   ![alt text](images/image.png)
 * 下载IDEA
-* 下载官方库alg4.jar和官方数据包alg4-data.zip(tools中有备份)
+* 下载官方库alg4.jar和官方数据包alg4-data.zip
 * 更新CLASSPATH环境变量(.;不能少！)
   ![alt text](images/image-1.png)
 * IDEA配置
