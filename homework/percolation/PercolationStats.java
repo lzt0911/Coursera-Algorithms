@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdStats;
 public class PercolationStats {
     private static final double CONFIDENCE_95 = 1.96;
     private double[] thresholds;
-    
+
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials) {
         if (n <= 0 || trials <= 0) {
@@ -16,7 +16,12 @@ public class PercolationStats {
         for (int i = 0; i < trials; i++) {
             Percolation perc = new Percolation(n);
             while (!perc.percolates()) {
-                perc.open(StdRandom.uniformInt(1, n + 1), StdRandom.uniformInt(1, n + 1));
+                int row, col;
+                do {
+                    col = StdRandom.uniformInt(1, n + 1);
+                    row = StdRandom.uniformInt(1, n + 1);
+                } while (perc.isOpen(row, col));
+                perc.open(row, col);
             }
             thresholds[i] = (double) perc.numberOfOpenSites() / (n * n);
         }
